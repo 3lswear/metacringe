@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>metacringe.com: keeping it real since 1999</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+	<!-- <script src="index.js"></script> -->
+	<!-- hi all -->
+	<img width="30%" src="https://wallpaperaccess.com/full/2308663.jpg">
+
+	<br>
+	<label for="flag-input">Enter the flag:</label>
+	<input type="text" id="flag-input">
+	<button onclick="checkFlag()">Click this first</button>
+	<a id="message"></a>
+
+	<script>
+		async function checkFlag() {
+			var dingus = document.getElementById("flag-input").value;
+			var doodad = new TextEncoder().encode(dingus);
+			var doohickey = await crypto.subtle.digest("SHA-256", doodad);
+			var thingummy = document.querySelector('a');
+
+			thingummy.href = doTheThing(doohickey);
+			thingummy.innerHTML = "CLAIM REWARD";
+		}
+
+		function doTheThing(thingamabob) {
+			return Array.from(new Uint8Array(thingamabob)).map(b => b.toString(16).padStart(2, "0")).join("");
+		}
+	</script>
+
+  </body>
+</html>
